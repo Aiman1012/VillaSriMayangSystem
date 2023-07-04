@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th ="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Staff Dashboard</title>
+    <title>Guest Dashboard</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -26,11 +26,11 @@
                         <span class="icon"><i class="fas fa-home"></i></span>
                         <span class="text">Dashboard</span>
                     </a></li>
-                    <li><a th:href="@{/roomIndex}" >
+                    <li><a th:href="@{/roomIndex}" class="active">
                         <span class="icon"><i class="fas fa-file-alt"></i></span>
                         <span class="text">Room</span>
                     </a></li>
-                    <li><a th:href="@{/packageIndex}" class="active">
+                    <li><a th:href="@{/packageIndex}" >
                         <span class="icon"><i class="fas fa-chart-pie"></i></span>
                         <span class="text">Package</span>
                     </a></li>
@@ -57,42 +57,46 @@
                     <i class="fas fa-bars"></i>
                 </div>
                 <div class="logo">
-                    Staff <span>Dashboard</span>
+                    Guest <span>Dashboard</span>
                 </div>
             </div>
 
             <div class="container">
                 <div class="content">
-                    <h1 class="text-center">Package List</h1>
+                    <h1 class="text-center">Room List</h1>
                     <table id="room" class="table table-bordered table-dark" style="width: 100%;">
                         <thead class="table-info">
                         <tr>
                             <th>ID</th>
-                            <th>Package Name</th>
-                            <th>Package Description</th>
-                            <th>Package Price</th>
-                            <th>Package Picture</th>
+                            <th>Room Name</th>
+                            <th>Room Description</th>
+                            <th>Room Price</th>
+                            <th>Room Picture</th>
+                            <th>Room Capacity</th>
+                            <th>Room Availability</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody class="text-center table-primary">
-                        <th:block th:each="package: ${ListPackages}">
+                        <th:block th:each="room: ${ListRooms}">
                             <tr class="my-3">
-                                <td th:text="${package.packageId}"></td>
-                                <td th:text="${package.packageName}"></td>
-                                <td th:text="${package.packagePrice}"></td>
-                                <td th:text="${package.packageDesc}"></td>
-                                <td><img alt="" th:src="@{'packageImg/' + ${package.packageImage}}" width="100%" height="300px"></td>
+                                <td th:text="${room.roomId}"></td>
+                                <td th:text="${room.roomName}"></td>
+                                <td th:text="${room.roomDesc}"></td>
+                                <td th:text="${room.roomPrice}"></td>
+                                <td><img alt="" th:src="@{'roomImg/' + ${room.roomImage}}" width="100%" height="300px"></td>
+                                <td th:text="${room.roomCapacity} + ' person'"></td>
+                                <td th:text="${room.roomAvail}"></td>
                                 <td>
-                                    <a class="py-1" th:href="@{'/packageIndex/edit/' + ${package.packageId}}"><button type="button" class="btn btn-outline-warning m-2">Edit</button></a>
-                                    <a class="py-1" onclick="cancelForm()" th:href="@{'/packageIndex/delete/' + ${package.packageId}}"><button type="button" class="btn btn-outline-danger m-2">Delete</button></a>
+                                    <a class="py-1" th:href="@{'/roomIndex/edit/' + ${room.roomId}}"><button type="button" class="btn btn-outline-warning m-2">Edit</button></a>
+                                    <a class="py-1" onclick="cancelForm()" th:href="@{'/roomIndex/delete/' + ${room.roomId}}"><button type="button" class="btn btn-outline-danger m-2">Delete</button></a>
                                 </td>
                             </tr>
                         </th:block>
                         </tbody>
                     </table>
                     <div class="container text-center">
-                        <a class="btn btn-primary" href="/packageIndex/addpackage" role="button">Add Package</a>
+                        <a class="btn btn-primary" th:href="@{/roomIndex/addRoom}" role="button">Add Room</a>
                     </div>
                 </div>
             </div>
