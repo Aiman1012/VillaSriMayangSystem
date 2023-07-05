@@ -88,16 +88,12 @@
                                 <td th:text="${room.roomCapacity} + ' person'"></td>
                                 <td th:text="${room.roomAvail}"></td>
                                 <td>
-                                    <a class="py-1" th:href="@{'/roomIndex/edit/' + ${room.roomId}}"><button type="button" class="btn btn-outline-warning m-2">Edit</button></a>
-                                    <a class="py-1" onclick="cancelForm()" th:href="@{'/roomIndex/delete/' + ${room.roomId}}"><button type="button" class="btn btn-outline-danger m-2">Delete</button></a>
+                                    <a class="py-1" th:href="@{'/roomIndex/edit/' + ${room.roomId}}"><button type="button" class="btn btn-outline-success m-2">Book</button></a>
                                 </td>
                             </tr>
                         </th:block>
                         </tbody>
                     </table>
-                    <div class="container text-center">
-                        <a class="btn btn-primary" th:href="@{/roomIndex/addRoom}" role="button">Add Room</a>
-                    </div>
                 </div>
             </div>
         </div>

@@ -10,8 +10,13 @@ public class MainController {
     public String showMainPage(){
         return "index";
     }
-    @GetMapping("/room")
-    public String showRoomPage(){
-        return "room";
+//    @GetMapping("/room")
+//    public String showRoomPage(){
+//        return "room";
+//    }
+
+    @GetMapping("/staffDashboard")
+    public String showDashboardStaff(){
+        return "dashboardStaff";
     }
 }

@@ -21,13 +21,12 @@
                     <p class="title">AEFFIL</p>
                     <p class="sub_title">aeffil@yahoo.com</p>
                 </div>
-                <!--                NAVBAR-->
                 <ul class="menu">
-                    <li><a href="https://www.freepik.com/photos/formal-girl">
+                    <li><a th:href="@{/dashboardStaff}" >
                         <span class="icon"><i class="fas fa-home"></i></span>
                         <span class="text">Dashboard</span>
                     </a></li>
-                    <li><a th:href="@{/roomIndex}" >
+                    <li><a th:href="@{/roomIndex}">
                         <span class="icon"><i class="fas fa-file-alt"></i></span>
                         <span class="text">Room</span>
                     </a></li>
@@ -35,24 +34,23 @@
                         <span class="icon"><i class="fas fa-chart-pie"></i></span>
                         <span class="text">Package</span>
                     </a></li>
-                    <li><a href="#">
+                    <li><a th:href="@{/paymentIndex}">
                         <span class="icon"><i class="fas fa-user"></i></span>
                         <span class="text">Payment</span>
                     </a></li>
-                    <li><a href="#">
+                    <li><a th:href="@{/feedbackList}">
                         <span class="icon"><i class="fas fa-cog"></i></span>
                         <span class="text">Feedback</span>
                     </a></li>
                 </ul>
 
                 <ul class="social">
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.facebook.com/villasrimayang/?locale=ms_MY"><i class="fab fa-facebook-f"></i></a></li>
                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                 </ul>
             </div>
         </div>
-        <!--        NAVBAR ENDED-->
         <div class="main_container">
             <div class="top_bar">
                 <div class="hamburger">
@@ -65,40 +63,36 @@
 
             <div class="container">
                 <div class="content">
-                    <h1 class="text-center">Room List</h1>
+                    <h1 class="text-center">Package List</h1>
                     <table id="room" class="table table-bordered table-dark" style="width: 100%;">
                         <thead class="table-info">
                         <tr>
                             <th>ID</th>
-                            <th>Room Name</th>
-                            <th>Room Description</th>
-                            <th>Room Price</th>
-                            <th>Room Picture</th>
-                            <th>Room Capacity</th>
-                            <th>Room Availability</th>
+                            <th>Package Name</th>
+                            <th>Package Description</th>
+                            <th>Package Price</th>
+                            <th>Package Picture</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody class="text-center table-primary">
-                        <th:block th:each="room: ${ListRooms}">
+                        <th:block th:each="package: ${ListPackages}">
                             <tr class="my-3">
-                                <td th:text="${room.roomId}"></td>
-                                <td th:text="${room.roomName}"></td>
-                                <td th:text="${room.roomDesc}"></td>
-                                <td th:text="${room.roomPrice}"></td>
-                                <td><img alt="" th:src="@{'roomImg/' + ${room.roomImage}}" width="100%" height="300px"></td>
-                                <td th:text="${room.roomCapacity} + ' person'"></td>
-                                <td th:text="${room.roomAvail}"></td>
+                                <td th:text="${package.packageId}"></td>
+                                <td th:text="${package.packageName}"></td>
+                                <td th:text="${package.packagePrice}"></td>
+                                <td th:text="${package.packageDesc}"></td>
+                                <td><img alt="" th:src="@{'packageImg/' + ${package.packageImage}}" width="100%" height="300px"></td>
                                 <td>
-                                    <a class="py-1" th:href="@{'/roomIndex/edit/' + ${room.roomId}}"><button type="button" class="btn btn-outline-warning m-2">Edit</button></a>
-                                    <a class="py-1" onclick="cancelForm()" th:href="@{'/roomIndex/delete/' + ${room.roomId}}"><button type="button" class="btn btn-outline-danger m-2">Delete</button></a>
+                                    <a class="py-1" th:href="@{'/packageIndex/edit/' + ${package.packageId}}"><button type="button" class="btn btn-outline-success m-2">Book Package</button></a>
+<!--                                    <a class="py-1" onclick="cancelForm()" th:href="@{'/packageIndex/delete/' + ${package.packageId}}"><button type="button" class="btn btn-outline-danger m-2">Delete</button></a>-->
                                 </td>
                             </tr>
                         </th:block>
                         </tbody>
                     </table>
                     <div class="container text-center">
-                        <a class="btn btn-primary" th:href="@{/roomIndex/addRoom}" role="button">Add Room</a>
+                        <a class="btn btn-primary" href="/packageIndex/addpackage" role="button">Add Package</a>
                     </div>
                 </div>
             </div>

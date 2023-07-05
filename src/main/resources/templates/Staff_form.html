@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guest registration Form</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="register1.css">
+  <script src="https://kit.fontawesome.com/f5d20665d9.js" crossorigin="anonymous"></script>
+  <style>
+  *{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+  }
+
+  body{
+  height: 100vh;
+  width: 100%;
+  }
+
+  .header {
+  position: absolute;
+  top: 0;
+  height: 100px;
+  position: absolute;
+  left: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 600px;
+  }
+
+  .header a, .header div a {
+  text-decoration: none;
+  color: #015266;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 17px;
+  }
+
+  .header div {
+  display: flex;
+  flex-direction: row;
+  column-gap: 35px;
+  }
+
+  .cont-box {
+  position: absolute;
+  left: 250px;
+  top: 50px;
+  }
+
+  .container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 100px;
+  }
+
+  .container:after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: url("img/pexels-matteo-parisi-12954779.jpg") no-repeat center;
+  background-size: cover;
+  filter: blur(50px);
+  z-index: -1;
+  }
+  .contact-box{
+  max-width: 850px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+  }
+
+  .left{
+  background: url("img/pexels-matteo-parisi-12954779.jpg") no-repeat center;
+  background-size: cover;
+  height: 100%;
+  }
+
+  .right{
+  padding: 25px 40px;
+  }
+
+  h2{
+  position: relative;
+  padding: 0 0 10px;
+  margin-bottom: 10px;
+  }
+
+  h2:after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 4px;
+  width: 50px;
+  border-radius: 2px;
+  background-color: #2ecc71;
+  background-color: #8B4513;
+  }
+
+  .field{
+  width: 100%;
+  border: 2px solid rgba(0, 0, 0, 0);
+  outline: none;
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  margin-bottom: 22px;
+  transition: .3s;
+  }
+
+  .field:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  textarea{
+  min-height: 125px;
+  }
+
+  .btn{
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: #8B4513;
+  color: #f1f1f1;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: .3s;
+  }
+
+  .btn:hover{
+  background-color: rgba(230, 230, 230, 0.6);
+  color:#8B4513;
+  }
+
+  .btn:active{
+  background-color: #2ecc71;
+  color: #fff;
+  }
+
+  .field:focus{
+  border: 2px solid rgba(30,85,250,0.47);
+  background-color: #fff;
+  }
+
+  @media screen and (max-width: 880px){
+  .contact-box{
+  grid-template-columns: 1fr;
+  }
+  .left{
+  height: 200px;
+  }
+  }
+
+  .forthBox {
+  width: 1517px;
+  height: 80px;
+  position: absolute;
+  top: 670px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 700px;
+  }
+
+  .forthBox div {
+  color: #919EA1;
+  }
+
+  .forthBox-left p, .forthBox-right p {
+  font-family: 'Open Sans', sans-serif;
+  }
+
+  .forthBox-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 6px;
+  }
+
+  .forthBox-right p {
+  text-align: center;
+  }
+
+  .forthBox-right div {
+  display: flex;
+  flex-direction: row;
+  column-gap: 8px;
+  }</style>
+</head>
+<body>
+<div class="cont-box">
+  <div class="container">
+    <div class="contact-box">
+      <div class="left"></div>
+      <div class="right">
+
+        <h2>Registration staff</h2>
+        <br>
+        <form name="loginForm" th:action="@{/staff/save}" th:method="post" th:object="${staff}">
+
+          <input type="email" class="field"  th:field ="*{semail}" placeholder="Email*" required>
+          <input type="text" class="field" th:field ="*{sfirstname}" placeholder="First Name*" required>
+          <input type="text" class="field" th:field ="*{slastname}"placeholder="Last Name*" required>
+          <br>
+
+          <input type="text" class="field" th:field ="*{spassword}" placeholder="password*" required>
+          <input type="text" class="field" th:field ="*{sphoneno}" placeholder="Phone Number*" required>
+<br>
+
+
+          <br>
+          <br>
+          <br>
+          <button class="btn">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  function cancelForm(){
+    window.location = "[@{/staff}]";
+  }
+</script>
+
+<div class="forthBox">
+
+  <div class="forthBox-left">
+    <p>&#169; VillaSriMayang.All rights reserved</p>
+  </div>
+
+  <div class="forthBox-right">
+    <p>Our Social</p>
+    <a href="GuestList.html"></a>
+
+    <div>
+      <i class="fa-brands fa-facebook"></i>
+      <i class="fa-brands fa-square-instagram"></i>
+      <i class="fa-brands fa-square-twitter"></i>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

@@ -236,36 +236,39 @@
                     <p class="title">AEFFIL</p>
                     <p class="sub_title">aeffil@yahoo.com</p>
                 </div>
-                <ul class="menu">
-                    <li><a href="https://www.freepik.com/photos/formal-girl">
-                        <span class="icon"><i class="fas fa-home"></i></span>
-                        <span class="text">Dashboard</span>
-                    </a></li>
-                    <li><a href="#" class="active">
-                        <span class="icon"><i class="fas fa-file-alt"></i></span>
-                        <span class="text">Room</span>
-                    </a></li>
-                    <li><a href="#">
-                        <span class="icon"><i class="fas fa-chart-pie"></i></span>
-                        <span class="text">Package</span>
-                    </a></li>
-                    <li><a href="#">
-                        <span class="icon"><i class="fas fa-user"></i></span>
-                        <span class="text">Payment</span>
-                    </a></li>
-                    <li><a href="#">
-                        <span class="icon"><i class="fas fa-cog"></i></span>
-                        <span class="text">Feedback</span>
-                    </a></li>
-                </ul>
-
-                <ul class="social">
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                </ul>
+                <!--                NAVBAR-->
             </div>
+            <ul class="menu">
+                <li><a th:href="@{/dashboardStaff}" >
+                    <span class="icon"><i class="fas fa-home"></i></span>
+                    <span class="text">Dashboard</span>
+                </a></li>
+                <li><a th:href="@{/roomIndex}">
+                    <span class="icon"><i class="fas fa-file-alt"></i></span>
+                    <span class="text">Room</span>
+                </a></li>
+                <li><a th:href="@{/packageIndex}" class="active">
+                    <span class="icon"><i class="fas fa-chart-pie"></i></span>
+                    <span class="text">Package</span>
+                </a></li>
+                <li><a th:href="@{/paymentIndex}">
+                    <span class="icon"><i class="fas fa-user"></i></span>
+                    <span class="text">Payment</span>
+                </a></li>
+                <li><a th:href="@{/feedbackList}">
+                    <span class="icon"><i class="fas fa-cog"></i></span>
+                    <span class="text">Feedback</span>
+                </a></li>
+            </ul>
+
+            <ul class="social">
+                <li><a href="https://www.facebook.com/villasrimayang/?locale=ms_MY"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
         </div>
+    </div>
+    <!--        NAVBAR ENDED-->
         <div class="main_container">
             <div class="top_bar">
                 <div class="hamburger">

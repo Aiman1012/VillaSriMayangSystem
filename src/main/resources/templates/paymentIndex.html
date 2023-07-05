@@ -65,40 +65,34 @@
 
             <div class="container">
                 <div class="content">
-                    <h1 class="text-center">Room List</h1>
+                    <h1 class="text-center">Payment List</h1>
                     <table id="room" class="table table-bordered table-dark" style="width: 100%;">
                         <thead class="table-info">
                         <tr>
                             <th>ID</th>
-                            <th>Room Name</th>
-                            <th>Room Description</th>
-                            <th>Room Price</th>
-                            <th>Room Picture</th>
-                            <th>Room Capacity</th>
-                            <th>Room Availability</th>
+                            <th>Payment Amount</th>
+                            <th>Payment Date</th>
+                            <th>Payment Status</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody class="text-center table-primary">
-                        <th:block th:each="room: ${ListRooms}">
+                        <th:block th:each="payment: ${ListPayments}">
                             <tr class="my-3">
-                                <td th:text="${room.roomId}"></td>
-                                <td th:text="${room.roomName}"></td>
-                                <td th:text="${room.roomDesc}"></td>
-                                <td th:text="${room.roomPrice}"></td>
-                                <td><img alt="" th:src="@{'roomImg/' + ${room.roomImage}}" width="100%" height="300px"></td>
-                                <td th:text="${room.roomCapacity} + ' person'"></td>
-                                <td th:text="${room.roomAvail}"></td>
+                                <td th:text="${payment.paymentId}"></td>
+                                <td th:text="${payment.paymentAmount}"></td>
+                                <td th:text="${payment.paymentDate}"></td>
+                                <td th:text="${payment.paymentStatus}"></td>
                                 <td>
-                                    <a class="py-1" th:href="@{'/roomIndex/edit/' + ${room.roomId}}"><button type="button" class="btn btn-outline-warning m-2">Edit</button></a>
-                                    <a class="py-1" onclick="cancelForm()" th:href="@{'/roomIndex/delete/' + ${room.roomId}}"><button type="button" class="btn btn-outline-danger m-2">Delete</button></a>
+<!--                                    <a class="py-1" th:href="@{'/packageIndex/edit/' + ${payment.packageId}}"><button type="button" class="btn btn-outline-warning m-2">Edit</button></a>-->
+                                    <a class="py-1" onclick="cancelForm()" th:href="@{'/paymentIndex/delete/' + ${payment.paymentId}}"><button type="button" class="btn btn-outline-danger m-2">Delete</button></a>
                                 </td>
                             </tr>
                         </th:block>
                         </tbody>
                     </table>
                     <div class="container text-center">
-                        <a class="btn btn-primary" th:href="@{/roomIndex/addRoom}" role="button">Add Room</a>
+                        <a class="btn btn-primary" href="/paymentIndex/addPayment" role="button">Add Payment</a>
                     </div>
                 </div>
             </div>
@@ -127,7 +121,7 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script type="text/javascript">
     function cancelForm(){
-        window.location="[[@{/roomIndex}]]"
+        window.location="[[@{/paymentIndex}]]"
     }
 </script>
 
