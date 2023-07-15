@@ -16,10 +16,10 @@
             <div class="vertical_bar">
                 <div class="profile_info">
                     <div class="img_holder">
-                        <img src="assets/frogpp.jpeg" alt="profile_pic">
+                        <img src="assets/svg-logo.jpg" alt="profile_pic">
                     </div>
-                    <p class="title">AEFFIL</p>
-                    <p class="sub_title">aeffil@yahoo.com</p>
+                    <p class="title">Sri Mayang Villa</p>
+                    <p class="sub_title">srimayangvilla@gmail.com</p>
                 </div>
                 <!--                NAVBAR-->
                 <ul class="menu">
@@ -31,11 +31,11 @@
                         <span class="icon"><i class="fas fa-file-alt"></i></span>
                         <span class="text">Room</span>
                     </a></li>
-                    <li><a th:href="@{/packageIndex}" class="active">
+                    <li><a th:href="@{/packageIndex}" >
                         <span class="icon"><i class="fas fa-chart-pie"></i></span>
                         <span class="text">Package</span>
                     </a></li>
-                    <li><a href="#">
+                    <li><a href="#" class="active">
                         <span class="icon"><i class="fas fa-user"></i></span>
                         <span class="text">Payment</span>
                     </a></li>
@@ -46,9 +46,9 @@
                 </ul>
 
                 <ul class="social">
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.facebook.com/villasrimayang/?locale=ms_MY"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a th:href="@{/guestDashboard}"><box-icon name='happy-alt' ></box-icon></a></li>
+                    <li><a th:href="@{/}"><box-icon name='log-out-circle'></box-icon></a></li>
                 </ul>
             </div>
         </div>
@@ -124,6 +124,7 @@
         window.location="[[@{/paymentIndex}]]"
     }
 </script>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
 <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>

@@ -16,10 +16,10 @@
             <div class="vertical_bar">
                 <div class="profile_info">
                     <div class="img_holder">
-                        <img src="assets/frogpp.jpeg" alt="profile_pic">
+                        <img src="assets/svg-logo.jpg" alt="profile_pic">
                     </div>
-                    <p class="title">AEFFIL</p>
-                    <p class="sub_title">aeffil@yahoo.com</p>
+                    <p class="title">Villa Sri Mayang</p>
+                    <p class="sub_title">srimayangvilla@gmail.com</p>
                 </div>
                 <ul class="menu">
                     <li><a th:href="@{/dashboardStaff}" >
@@ -46,8 +46,8 @@
 
                 <ul class="social">
                     <li><a href="https://www.facebook.com/villasrimayang/?locale=ms_MY"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a th:href="@{/guestDashboard}"><box-icon name='happy-alt' ></box-icon></a></li>
+                    <li><a th:href="@{/}"><box-icon name='log-out-circle'></box-icon></a></li>
                 </ul>
             </div>
         </div>
@@ -124,6 +124,7 @@
         window.location="[[@{/roomIndex}]]"
     }
 </script>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
 <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>

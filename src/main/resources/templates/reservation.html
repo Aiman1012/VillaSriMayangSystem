@@ -231,9 +231,9 @@
       <div class="vertical_bar">
         <div class="profile_info">
           <div class="img_holder">
-            <img  src="svg-logo.jpg" alt="profile_pic">
+<!--            <img  src="svg-logo.jpg" alt="profile_pic">-->
           </div>
-          <p class="title">Villa Sri Mayang </p>
+          <p class="title">Sri Mayang Villa</p>
           <p class="sub_title">srimayangvilla@gmail.com</p>
         </div>
         <ul class="menu">
@@ -276,85 +276,76 @@
         </div>
       </div>
       <div class="container">
-<!--        <th:block th:if="${session.msg}">-->
-<!--          <p class="text-center fs-4 text-success">[[${session.msg}]]</p>-->
-<!--          <th:block th:text="${#session.removeAttribute('msg')}"></th:block>-->
-<!--        </th:block>-->
         <div class="container-fluid">
-          <div class="container text-center"><h1>Add Room</h1></div>
-          <form style="max-width: 500px; margin: 0 auto;" th:action="@{/roomIndex/roomUpload}" th:method="post"  th:object="${room}" enctype="multipart/form-data">
-            <!--            user refer to the Model model name in controller class-->
-            <input type="hidden" th:field="*{roomId}">
+          <div class="container text-center">
+            <h1>Reservation</h1>
+          </div>
+          <form style="max-width: 500px; margin: 0 auto;" >
+            <input type="hidden">
             <div class="border border-secondary rounded p-3">
               <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Room Name : </label>
+                <label class="col-sm-4 col-form-label">Check-in Date:</label>
                 <div class="col-sm-8">
-                  <input type="text" name="roomName" th:field="*{roomName}" class="form-control" required >
+                  <input type="date" name="checkInDate"
+                         class="form-control" required>
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Room Price : </label>
+                <label class="col-sm-4 col-form-label">Check-out Date:</label>
                 <div class="col-sm-8">
-                  <input type="text" name="roomPrice" th:field="*{roomPrice}" class="form-control" required>
+                  <input type="date" name="checkOutDate"
+                         class="form-control" required>
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Room Description : </label>
+                <label class="col-sm-4 col-form-label">Payment Type:</label>
                 <div class="col-sm-8">
-                  <!--                <label for="exampleFormControlTextarea1" class="form-label">Room Description: </label>-->
-                  <textarea class="form-control" name="roomDesc" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <input type="text" name="paymentType"
+                         class="form-control" required>
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Room Availability : </label>
+                <label class="col-sm-4 col-form-label">Amount Paid:</label>
                 <div class="col-sm-8">
-                  <input type="checkbox" name="roomAvail" th:field="*{roomAvail}">
+                  <input type="number" name="amountPaid"
+                         class="form-control" required>
                 </div>
               </div>
-              <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Room Capacity : </label>
-                <div class="col-sm-8">
-                  <input type="number" name="roomCapacity" th:field="*{roomCapacity}">
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="input-group mb-3">
-                  <label class="input-group-text" for="inputGroupFile01">Upload</label>
-                  <input type="file" name="roomImg" class="form-control" id="inputGroupFile01">
-                </div>
-              </div>
+              <!-- End of additional fields -->
               <div class="text-center">
-                <button type="submit" class="btn btn-primary m-2">Save</button>
+                <button type="submit" class="btn btn-primary m-2">Reserve</button>
                 <button type="button" class="btn btn-outline-danger m-2" onclick="cancelForm()">Cancel</button>
               </div>
             </div>
           </form>
         </div>
+      </div>
+    </div>
 
-        <script>
-          var hamburger = document.querySelector(".hamburger");
-          var wrapper  = document.querySelector(".wrapper");
-          var backdrop = document.querySelector(".backdrop");
+    <script>
+      var hamburger = document.querySelector(".hamburger");
+      var wrapper  = document.querySelector(".wrapper");
+      var backdrop = document.querySelector(".backdrop");
 
-          hamburger.addEventListener("click", function(){
-            wrapper.classList.add("active");
-          })
+      hamburger.addEventListener("click", function(){
+        wrapper.classList.add("active");
+      })
 
-          backdrop.addEventListener("click", function(){
-            wrapper.classList.remove("active");
-          })
-        </script>
-        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-        <script src="javascript/nav.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <script type="text/javascript">
-          function cancelForm(){
-            window.location="[[@{/roomIndex}]]"
-          }
-        </script>
-        <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js""></script> -->
+      backdrop.addEventListener("click", function(){
+        wrapper.classList.remove("active");
+      })
+    </script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="javascript/nav.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      function cancelForm(){
+        window.location="[[@{/roomIndex}]]"
+      }
+    </script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js""></script> -->
 </body>
 </html>
